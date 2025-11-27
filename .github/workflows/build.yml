@@ -17,8 +17,11 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      - name: Build
-        run: npm run build
+      - name: Install ncc
+        run: npm install -g @vercel/ncc
+      
+      - name: Build with ncc
+        run: ncc build index.js -o dist
       
       - name: Commit dist
         run: |
